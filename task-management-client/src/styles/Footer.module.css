@@ -1,0 +1,74 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem 3rem;
+  margin: 0 auto;
+}
+
+.companyInfo h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #999999;
+}
+
+.companyInfo p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.quickLinks h3,
+.socialMedia h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.quickLinks ul {
+  list-style: none;
+}
+
+.quickLinks li {
+  margin-bottom: 10px;
+}
+
+.quickLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.quickLinks a:hover {
+  color: #ff9900;
+}
+
+.socialMedia .icons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialMedia a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.socialMedia a:hover {
+  color: #ff9900;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #999999;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
