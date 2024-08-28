@@ -31,27 +31,16 @@ const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ email });
 
-        const userImage = user.image && `http://localhost:5000${user.image}`;
-        console.log("authController -> loginUser: ", userImage ?? "No Image");
+        const userImage = user.image && `${process.env.BACKEND_URL}${user.image}`;
+        // console.log("authController -> loginUser: ", userImage ?? "No Image");
         if (user && (await bcrypt.compare(password, user.password))) {
-            if (userImage) {
-                res.json({
-                    _id: user._id,
-                    username: user.username,
-                    email: user.email,
-                    image: `http://localhost:5000${user.image}`,
-                    token: generateToken(user._id),
-                });
-            } else {
-                res.json({
-                    _id: user._id,
-                    username: user.username,
-                    email: user.email,
-                    image: null,
-                    token: generateToken(user._id),
-                });
-
-            }
+            res.json({
+                _id: user._id,
+                username: user.username,
+                email: user.email,
+                image: userImage ? userImage : null,
+                token: generateToken(user._id),
+            });
         } else {
             res.status(401).json({ message: 'Invalid email or password' });
         }
