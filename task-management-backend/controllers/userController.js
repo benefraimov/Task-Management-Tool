@@ -1,6 +1,4 @@
 const User = require('../models/User');
-const fs = require('fs')
-const path = require('path')
 const { generateToken } = require('../utils/jwtUtils');
 
 // Get user profile
@@ -27,6 +25,7 @@ const updateUserProfile = async (req, res) => {
             if (req.file) {
                 const imagePath = `/uploads/${req.file.filename}`; // URL path to the image
                 user.image = imagePath; // Save the URL path in MongoDB
+                console.log("userController -> updateUserProfile: ", user.image);
             }
 
             if (req.body.password) {

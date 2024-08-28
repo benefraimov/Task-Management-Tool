@@ -14,7 +14,10 @@ function ProfilePage() {
   const [imagePreview, setImagePreview] = useState(null); // URL for image preview
 
   useEffect(() => {
-    setImagePreview(user.image || defaultProfileImage); // Update preview if user data changes
+    if (user.image) {
+      console.log(user.image);
+      setImagePreview(user.image); // Update preview if user data changes
+    }
   }, [user.image]);
 
   // Clean up previous image URL when component unmounts or before updating

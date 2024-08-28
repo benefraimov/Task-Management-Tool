@@ -9,8 +9,11 @@ import {
   FaListCheck,
   FaTruckFast,
 } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -37,7 +40,11 @@ const Navigation = () => {
       <nav>
         <ul className={classes.firstSection}>
           <li>
-            <Link to="/dashboard">Taskify</Link>
+            {user ? (
+              <Link to="/dashboard">Taskify</Link>
+            ) : (
+              <Link to="/">Taskify</Link>
+            )}
           </li>
         </ul>
         <ul className={classes.secondSection}>
