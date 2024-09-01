@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../styles/CompletedBox.module.css";
-import { FaListCheck, FaRegCircleDot, FaStopwatch } from "react-icons/fa6";
+import { FaListCheck, FaRegCircleDot } from "react-icons/fa6";
 
 function CompletedBox() {
   return (

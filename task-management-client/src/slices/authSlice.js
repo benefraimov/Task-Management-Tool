@@ -107,7 +107,7 @@ const authSlice = createSlice({
             })
         // Delete user
         // .addCase(deleteuser.fulfilled, (state, { payload }) => {
-        //     state.users = state.users.filter(user => user._id !== payload);
+        //     // add your case state update 
         // });
     },
 });
