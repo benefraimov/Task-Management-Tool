@@ -3,6 +3,7 @@ import classes from "../styles/ProfilePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logoutUser, updateUser } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function ProfilePage() {
   const dispatch = useDispatch();
@@ -78,6 +79,9 @@ function ProfilePage() {
 
   return (
     <div className={classes.pageContainer}>
+      <Helmet>
+        <title>Taskify - Profile</title>
+      </Helmet>
       <div className={classes["inner-container"]}>
         <h2>Account Profile</h2>
         <div className={classes.profileSection}>
