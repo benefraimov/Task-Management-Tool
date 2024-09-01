@@ -1,0 +1,7 @@
+MONGO_URI=your mongodb uri
+JWT_SECRET=your jwt secret
+MONGO_DB_NAME=Your data base name
+FRONTEND_URL=your frontend url
+BACKEND_URL=your backend url
+
+
