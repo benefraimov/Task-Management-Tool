@@ -7,7 +7,16 @@ const { generateToken } = require('../utils/jwtUtils');
 const getUserProfile = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).select('-password');
-        res.json(user);
+
+        const userImage = user.image && `${process.env.BACKEND_URL}${user.image}`;
+
+        res.json({
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            image: userImage ? userImage : null, // Include image URL
+            token: generateToken(user._id),
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

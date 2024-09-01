@@ -37,6 +37,25 @@ export const logoutUser = createAsyncThunk('auth/logout', async () => {
 });
 
 // Update user
+export const getUser = createAsyncThunk('users/getProfile', async (_, thunkAPI) => {
+    try {
+        const { auth } = thunkAPI.getState();
+        const config = {
+            headers: {
+                Authorization: `Bearer ${auth.user.token}`,
+            }
+        };
+        // console.log(config)
+        const { data } = await axios.get(`${API_BASE_URL}/users/profile`, config);
+        // console.log(data)
+        localStorage.setItem('user', JSON.stringify(data));
+        return data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+});
+
+// Update user
 export const updateUser = createAsyncThunk('users/profileUpdate', async (formData, thunkAPI) => {
     try {
         const { auth } = thunkAPI.getState();
@@ -103,6 +122,10 @@ const authSlice = createSlice({
             })
             // Update user
             .addCase(updateUser.fulfilled, (state, { payload }) => {
+                state.user = payload;
+            })
+            // Get user
+            .addCase(getUser.fulfilled, (state, { payload }) => {
                 state.user = payload;
             })
         // Delete user

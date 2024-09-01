@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../styles/ProfilePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser, updateUser } from "../slices/authSlice";
+import { getUser, logoutUser, updateUser } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import defaultProfileImage from "../assets/SpaCode.png";
 
 function ProfilePage() {
   const dispatch = useDispatch();
@@ -19,6 +18,10 @@ function ProfilePage() {
       setImagePreview(user.image); // Update preview if user data changes
     }
   }, [user.image]);
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   // Clean up previous image URL when component unmounts or before updating
   useEffect(() => {
