@@ -1,0 +1,8 @@
+https://taskstool.spacode.xyz/
+https://taskstool.spacode.xyz/login
+https://taskstool.spacode.xyz/register
+https://taskstool.spacode.xyz/favorites-tasks
+https://taskstool.spacode.xyz/priority-tasks
+https://taskstool.spacode.xyz/future-tasks
+https://taskstool.spacode.xyz/completed-tasks
+https://taskstool.spacode.xyz/dashboard
